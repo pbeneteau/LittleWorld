@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		38C81CD51E292237000523DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CD41E292237000523DB /* AppDelegate.swift */; };
+		38C81CD71E292237000523DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CD61E292237000523DB /* ViewController.swift */; };
+		38C81CDA1E292237000523DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CD81E292237000523DB /* Main.storyboard */; };
+		38C81CDD1E292237000523DB /* LittleWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CDB1E292237000523DB /* LittleWorld.xcdatamodeld */; };
+		38C81CDF1E292237000523DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CDE1E292237000523DB /* Assets.xcassets */; };
+		38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CE01E292237000523DB /* LaunchScreen.storyboard */; };
+		38C81CED1E292237000523DB /* LittleWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CEC1E292237000523DB /* LittleWorldTests.swift */; };
+		38C81CF81E292237000523DB /* LittleWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CF71E292237000523DB /* LittleWorldUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38C81CE91E292237000523DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38C81CC91E292237000523DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38C81CD01E292237000523DB;
+			remoteInfo = LittleWorld;
+		};
+		38C81CF41E292237000523DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38C81CC91E292237000523DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38C81CD01E292237000523DB;
+			remoteInfo = LittleWorld;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		38C81CD11E292237000523DB /* LittleWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C81CD41E292237000523DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38C81CD61E292237000523DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38C81CD91E292237000523DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38C81CDC1E292237000523DB /* LittleWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleWorld.xcdatamodel; sourceTree = "<group>"; };
+		38C81CDE1E292237000523DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38C81CE11E292237000523DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		38C81CE31E292237000523DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C81CE81E292237000523DB /* LittleWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C81CEC1E292237000523DB /* LittleWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleWorldTests.swift; sourceTree = "<group>"; };
+		38C81CEE1E292237000523DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C81CF31E292237000523DB /* LittleWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C81CF71E292237000523DB /* LittleWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleWorldUITests.swift; sourceTree = "<group>"; };
+		38C81CF91E292237000523DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38C81CCE1E292237000523DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C81CE51E292237000523DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C81CF01E292237000523DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38C81CC81E292237000523DB = {
+			isa = PBXGroup;
+			children = (
+				38C81CD31E292237000523DB /* LittleWorld */,
+				38C81CEB1E292237000523DB /* LittleWorldTests */,
+				38C81CF61E292237000523DB /* LittleWorldUITests */,
+				38C81CD21E292237000523DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38C81CD21E292237000523DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38C81CD11E292237000523DB /* LittleWorld.app */,
+				38C81CE81E292237000523DB /* LittleWorldTests.xctest */,
+				38C81CF31E292237000523DB /* LittleWorldUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38C81CD31E292237000523DB /* LittleWorld */ = {
+			isa = PBXGroup;
+			children = (
+				38C81CD41E292237000523DB /* AppDelegate.swift */,
+				38C81CD61E292237000523DB /* ViewController.swift */,
+				38C81CD81E292237000523DB /* Main.storyboard */,
+				38C81CDE1E292237000523DB /* Assets.xcassets */,
+				38C81CE01E292237000523DB /* LaunchScreen.storyboard */,
+				38C81CE31E292237000523DB /* Info.plist */,
+				38C81CDB1E292237000523DB /* LittleWorld.xcdatamodeld */,
+			);
+			path = LittleWorld;
+			sourceTree = "<group>";
+		};
+		38C81CEB1E292237000523DB /* LittleWorldTests */ = {
+			isa = PBXGroup;
+			children = (
+				38C81CEC1E292237000523DB /* LittleWorldTests.swift */,
+				38C81CEE1E292237000523DB /* Info.plist */,
+			);
+			path = LittleWorldTests;
+			sourceTree = "<group>";
+		};
+		38C81CF61E292237000523DB /* LittleWorldUITests */ = {
+			isa = PBXGroup;
+			children = (
+				38C81CF71E292237000523DB /* LittleWorldUITests.swift */,
+				38C81CF91E292237000523DB /* Info.plist */,
+			);
+			path = LittleWorldUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38C81CD01E292237000523DB /* LittleWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38C81CFC1E292237000523DB /* Build configuration list for PBXNativeTarget "LittleWorld" */;
+			buildPhases = (
+				38C81CCD1E292237000523DB /* Sources */,
+				38C81CCE1E292237000523DB /* Frameworks */,
+				38C81CCF1E292237000523DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LittleWorld;
+			productName = LittleWorld;
+			productReference = 38C81CD11E292237000523DB /* LittleWorld.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38C81CE71E292237000523DB /* LittleWorldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38C81CFF1E292237000523DB /* Build configuration list for PBXNativeTarget "LittleWorldTests" */;
+			buildPhases = (
+				38C81CE41E292237000523DB /* Sources */,
+				38C81CE51E292237000523DB /* Frameworks */,
+				38C81CE61E292237000523DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38C81CEA1E292237000523DB /* PBXTargetDependency */,
+			);
+			name = LittleWorldTests;
+			productName = LittleWorldTests;
+			productReference = 38C81CE81E292237000523DB /* LittleWorldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		38C81CF21E292237000523DB /* LittleWorldUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38C81D021E292237000523DB /* Build configuration list for PBXNativeTarget "LittleWorldUITests" */;
+			buildPhases = (
+				38C81CEF1E292237000523DB /* Sources */,
+				38C81CF01E292237000523DB /* Frameworks */,
+				38C81CF11E292237000523DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38C81CF51E292237000523DB /* PBXTargetDependency */,
+			);
+			name = LittleWorldUITests;
+			productName = LittleWorldUITests;
+			productReference = 38C81CF31E292237000523DB /* LittleWorldUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38C81CC91E292237000523DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Paul Bénéteau";
+				TargetAttributes = {
+					38C81CD01E292237000523DB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 32M3E59Q24;
+						ProvisioningStyle = Automatic;
+					};
+					38C81CE71E292237000523DB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = X9UAR68B43;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 38C81CD01E292237000523DB;
+					};
+					38C81CF21E292237000523DB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = X9UAR68B43;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 38C81CD01E292237000523DB;
+					};
+				};
+			};
+			buildConfigurationList = 38C81CCC1E292237000523DB /* Build configuration list for PBXProject "LittleWorld" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38C81CC81E292237000523DB;
+			productRefGroup = 38C81CD21E292237000523DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38C81CD01E292237000523DB /* LittleWorld */,
+				38C81CE71E292237000523DB /* LittleWorldTests */,
+				38C81CF21E292237000523DB /* LittleWorldUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38C81CCF1E292237000523DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */,
+				38C81CDF1E292237000523DB /* Assets.xcassets in Resources */,
+				38C81CDA1E292237000523DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C81CE61E292237000523DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C81CF11E292237000523DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38C81CCD1E292237000523DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C81CD71E292237000523DB /* ViewController.swift in Sources */,
+				38C81CD51E292237000523DB /* AppDelegate.swift in Sources */,
+				38C81CDD1E292237000523DB /* LittleWorld.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C81CE41E292237000523DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C81CED1E292237000523DB /* LittleWorldTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C81CEF1E292237000523DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C81CF81E292237000523DB /* LittleWorldUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38C81CEA1E292237000523DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38C81CD01E292237000523DB /* LittleWorld */;
+			targetProxy = 38C81CE91E292237000523DB /* PBXContainerItemProxy */;
+		};
+		38C81CF51E292237000523DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38C81CD01E292237000523DB /* LittleWorld */;
+			targetProxy = 38C81CF41E292237000523DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		38C81CD81E292237000523DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38C81CD91E292237000523DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		38C81CE01E292237000523DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38C81CE11E292237000523DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38C81CFA1E292237000523DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38C81CFB1E292237000523DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38C81CFD1E292237000523DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 32M3E59Q24;
+				INFOPLIST_FILE = LittleWorld/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tastyapp.LittleWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		38C81CFE1E292237000523DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 32M3E59Q24;
+				INFOPLIST_FILE = LittleWorld/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tastyapp.LittleWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		38C81D001E292237000523DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X9UAR68B43;
+				INFOPLIST_FILE = LittleWorldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tastyapp.LittleWorldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittleWorld.app/LittleWorld";
+			};
+			name = Debug;
+		};
+		38C81D011E292237000523DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X9UAR68B43;
+				INFOPLIST_FILE = LittleWorldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tastyapp.LittleWorldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittleWorld.app/LittleWorld";
+			};
+			name = Release;
+		};
+		38C81D031E292237000523DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = X9UAR68B43;
+				INFOPLIST_FILE = LittleWorldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tastyapp.LittleWorldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = LittleWorld;
+			};
+			name = Debug;
+		};
+		38C81D041E292237000523DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = X9UAR68B43;
+				INFOPLIST_FILE = LittleWorldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tastyapp.LittleWorldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = LittleWorld;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38C81CCC1E292237000523DB /* Build configuration list for PBXProject "LittleWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C81CFA1E292237000523DB /* Debug */,
+				38C81CFB1E292237000523DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38C81CFC1E292237000523DB /* Build configuration list for PBXNativeTarget "LittleWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C81CFD1E292237000523DB /* Debug */,
+				38C81CFE1E292237000523DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		38C81CFF1E292237000523DB /* Build configuration list for PBXNativeTarget "LittleWorldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C81D001E292237000523DB /* Debug */,
+				38C81D011E292237000523DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		38C81D021E292237000523DB /* Build configuration list for PBXNativeTarget "LittleWorldUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C81D031E292237000523DB /* Debug */,
+				38C81D041E292237000523DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		38C81CDB1E292237000523DB /* LittleWorld.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				38C81CDC1E292237000523DB /* LittleWorld.xcdatamodel */,
+			);
+			currentVersion = 38C81CDC1E292237000523DB /* LittleWorld.xcdatamodel */;
+			path = LittleWorld.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 38C81CC91E292237000523DB /* Project object */;
+}
