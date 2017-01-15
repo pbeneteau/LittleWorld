@@ -27,7 +27,6 @@
 		38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CE01E292237000523DB /* LaunchScreen.storyboard */; };
 		38C81CED1E292237000523DB /* LittleWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CEC1E292237000523DB /* LittleWorldTests.swift */; };
 		38C81CF81E292237000523DB /* LittleWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CF71E292237000523DB /* LittleWorldUITests.swift */; };
-		38C81D071E292286000523DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38C81D061E292286000523DB /* Info.plist */; };
 		5257FB3C9E97F6B95FCE3DA6 /* Pods_LittleWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D68B75D8FEE438A79D7B49 /* Pods_LittleWorld.framework */; };
 		D6D06CB1CCF857A34DA4CB34 /* Pods_LittleWorldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F98F35A88FE3678606790 /* Pods_LittleWorldUITests.framework */; };
 /* End PBXBuildFile section */
@@ -333,7 +332,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38C81D071E292286000523DB /* Info.plist in Resources */,
 				3890E1D51E295C9D00B8FA9B /* GoogleService-Info.plist in Resources */,
 				38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */,
 				3890E1D11E29581C00B8FA9B /* Walkthrough.storyboard in Resources */,

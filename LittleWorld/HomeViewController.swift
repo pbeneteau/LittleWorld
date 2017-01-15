@@ -17,11 +17,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     var ref = FIRDatabase.database().reference()
     var user = FIRAuth.auth()?.currentUser
     
-    var userLocationInformations: UserLocation!
+    var userLocationInformations: UserLocation = UserLocation(long: 0.0,lat: 0.0,city: "",country: "",postalCode: "")
     
-    var tab_loc = [String:String]()
-    
-    var locationsArray = [String]()
     
     
     @IBOutlet weak var longituteLabel: UILabel!
@@ -68,46 +65,51 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+        getLocationDetails(location: locations[0])
+        printLocationDetails()
         
-        updateUserLocationInformations(location: locations[0])
-        
-        ref.child("Users").child((user?.uid)!).child("Location").setValue("\(userLocationInformations.location)")
-        
-        
-        // Get all users Location
-        let usersLocation = getUsersLocation(firebaseRef: self.ref)
-        
-        
-        let closestLocation: CLLocation = getClosestLocation(locations: coordinates, closestToLocation: userLocation)!
-        
-        let closestLong = closestLocation.coordinate.longitude
-        let closestLat = closestLocation.coordinate.latitude
-        
-        closestLatitudeLabel.text = "\(closestLat)"
-        closestLongitudeLabel.text = "\(closestLong)"
+        let usersLocation = getUsersLocation(firebaseRef: self.ref) as NSDictionary
         
     }
     
-    func updateUserLocationInformations(location: CLLocation) {
-        // Location CLLocation
-        self.userLocationInformations.location = location
-        self.userLocationInformations.long = userLocationInformations.location.coordinate.longitude
-        self.userLocationInformations.lat = userLocationInformations.location.coordinate.latitude
-        
-        
-        // Get user adress
-        getAddress(locationManager: locationManager, location: userLocationInformations.location) { result in
-            if let UserCity = result["City"] as? String {
-                self.userLocationInformations.city = "\(UserCity)"
+    func getLocationDetails(location: CLLocation) {
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+            if error != nil {
+                print("Error getting location: \(error)")
+            } else {
+                let placeArray = placemarks as [CLPlacemark]!
+                var placeMark: CLPlacemark!
+                if ((placeArray?.count)! > 0) {
+                    placeMark = placeArray?[0]
+                    self.updateUserLocationInformations(location: location, placeMark: placeMark)
+                }
             }
         }
-        // Get user adress
-        getAddress(locationManager: locationManager, location: userLocationInformations.location) { result in
-            if let UserCountry = result["Country"] as? String {
-                self.userLocationInformations.country = "\(UserCountry)"
-            }
+    }
+    
+    func updateUserLocationInformations(location: CLLocation, placeMark: CLPlacemark?) {
+        
+        // Add location details to the user
+        self.userLocationInformations.long = location.coordinate.longitude
+        self.userLocationInformations.lat = location.coordinate.latitude
+        
+        if placeMark != nil {
+            self.userLocationInformations.city = (placeMark?.locality!)!
+            self.userLocationInformations.country = (placeMark?.country!)!
+            self.userLocationInformations.postalCode = (placeMark?.postalCode!)!
         }
         
+        ref.child("Users").child((user?.uid)!).child("Location").child("Lat").setValue("\(userLocationInformations.lat)")
+        ref.child("Users").child((user?.uid)!).child("Location").child("Long").setValue("\(userLocationInformations.long)")
+        
+        ref.child("Users").child((user?.uid)!).child("Location").child("City").setValue("\(userLocationInformations.city)")
+        ref.child("Users").child((user?.uid)!).child("Location").child("PostalCode").setValue("\(userLocationInformations.postalCode)")
+        ref.child("Users").child((user?.uid)!).child("Location").child("Country").setValue("\(userLocationInformations.country)")
+    }
+    
+    func printLocationDetails() {
         self.cityLabel.text = "\(userLocationInformations.city)"
         self.countryLabel.text = "\(userLocationInformations.country)"
         self.longituteLabel.text = "\(userLocationInformations.long)"
