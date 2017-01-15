@@ -1,0 +1,47 @@
+//
+//  Helper.swift
+//  musifinder
+//
+//  Created by Paul Beneteau on 20/09/2016.
+//  Copyright © 2016 TastyApp. All rights reserved.
+//
+
+import Foundation
+import FirebaseAuth
+import UIKit
+
+class transitionSegue {
+    static let segue = transitionSegue()
+    
+     func switchToNavigationController() {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let naviVC = storyBoard.instantiateViewController(withIdentifier: "firstVC")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = naviVC
+        
+    }
+    
+    func switchToWalkThrough() {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let naviVC = storyBoard.instantiateViewController(withIdentifier: "walkThrough")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = naviVC
+        
+    }
+    
+    func switchToLoginview() {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let naviVC = storyBoard.instantiateViewController(withIdentifier: "loginView")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = naviVC
+        
+    }
+}
+
+
+
+
+
