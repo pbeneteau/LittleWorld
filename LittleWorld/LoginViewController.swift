@@ -14,6 +14,7 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var ref = FIRDatabase.database().reference() // Database reference
+    var user = FIRAuth.auth()?.currentUser
     
     @IBOutlet weak var loginAlert: UILabel!
     @IBOutlet weak var facebookButtonView: FBSDKLoginButton! // Facebook login button
@@ -50,7 +51,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print(error!.localizedDescription)
                     return
                 }
+                self.ref.child("Users").child(user!.uid).child("Name").setValue(user?.displayName)
             })
+            
             print("user logged with facebook -> WalkThrough")
             
             loginAlert.text = "Successfuly logged in!"
