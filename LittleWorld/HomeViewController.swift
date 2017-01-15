@@ -111,7 +111,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     func printLocationDetails() {
         self.cityLabel.text = "\(userLocationInformations.city)"
-        self.countryLabel.text = "\(userLocationInformations.country)"
+        self.countryLabel.text = "\(userLocationInformations.isoCountryCode)"
         self.longituteLabel.text = "\(userLocationInformations.long)"
         self.latitudeLabel.text = "\(userLocationInformations.lat)"
     }
