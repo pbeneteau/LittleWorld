@@ -71,6 +71,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         getUsersLocation()
         getNearUsers(circle: 100, usersLocation: usersLocation, location: locations[0])
         
+        self.usersInCircleTable.removeAll()
         for (key, value) in self.usersInCircle {
             self.usersInCircleTable.append(NearUser(uid:key,location:value))
         }
@@ -138,7 +139,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     // Find users around circle(m)
     func getNearUsers(circle: Double, usersLocation: [String:CLLocation], location: CLLocation){
         for user in usersLocation {
-            if distanceBetweenTwoLocations(source: location, destination: user.value) < circle {
+            if distanceBetweenTwoLocations(source: location, destination: user.value) < circle  && user.key != self.user?.uid{
                 self.usersInCircle[user.key] = user.value
             }
         }
