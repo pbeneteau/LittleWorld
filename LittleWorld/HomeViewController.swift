@@ -97,7 +97,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         if placeMark != nil {
             self.userLocationInformations.city = (placeMark?.locality!)!
-            self.userLocationInformations.country = (placeMark?.country!)!
+            self.userLocationInformations.isoCountryCode = (placeMark?.isoCountryCode!)!
             self.userLocationInformations.postalCode = (placeMark?.postalCode!)!
         }
         
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         ref.child("Users").child((user?.uid)!).child("Location").child("City").setValue("\(userLocationInformations.city)")
         ref.child("Users").child((user?.uid)!).child("Location").child("PostalCode").setValue("\(userLocationInformations.postalCode)")
-        ref.child("Users").child((user?.uid)!).child("Location").child("Country").setValue("\(userLocationInformations.country)")
+        ref.child("Users").child((user?.uid)!).child("Location").child("isoCountryCode").setValue("\(userLocationInformations.isoCountryCode)")
     }
     
     func printLocationDetails() {

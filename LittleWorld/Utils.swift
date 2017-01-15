@@ -16,7 +16,7 @@ struct UserLocation {
     var long: CLLocationDegrees
     var lat: CLLocationDegrees
     var city: String
-    var country: String
+    var isoCountryCode: String
     var postalCode: String
 }
 
@@ -30,6 +30,10 @@ func getUsersLocation (firebaseRef:FIRDatabaseReference) -> [String:CLLocationCo
     usersRef.observeSingleEvent(of: .value, with: { (snapshot) in
         let json = JSON(snapshot.value)
         print(json)
+        for i in 0..<json.count {
+            print(json[i]["Location"]["Lat"].intValue)
+        }
+        
     })
     
     return userLocation
