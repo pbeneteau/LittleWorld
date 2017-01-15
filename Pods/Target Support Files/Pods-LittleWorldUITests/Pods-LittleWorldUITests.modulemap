@@ -1,0 +1,6 @@
+framework module Pods_LittleWorldUITests {
+  umbrella header "Pods-LittleWorldUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
