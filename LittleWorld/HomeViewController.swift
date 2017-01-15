@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             locationManager.startUpdatingLocation()
         }
         
-        checkConnectionState(userID: "wbe3XsGRdKUqvp154bfDnVakfIg1")
+        checkConnectionState(userID: user!.uid  )
     }
     
     override func didReceiveMemoryWarning() {
@@ -156,7 +156,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                 print("error when getting an other user's Name")
                 return
             }
-            userName = snapshot.childSnapshot(forPath: "Name").value as! String
+            //userName = snapshot.childSnapshot(forPath: "Name").value as! String
         })
         return userName
     }
