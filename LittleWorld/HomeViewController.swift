@@ -50,6 +50,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        
+        checkConnectionState(userID: "wbe3XsGRdKUqvp154bfDnVakfIg1")
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +78,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             self.usersInCircleTable.append(NearUser(uid:key,location:value))
         }
         self.nearUsersTableView.reloadData()
+        
     }
     
     // Get current user City, PostalCode and Country code
@@ -154,11 +157,38 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                 return
             }
             userName = snapshot.childSnapshot(forPath: "Name").value as! String
-            print(userName)
         })
         return userName
     }
     
+    func checkConnectionState(userID : String) {
+     
+        // since I can connect from multiple devices, we store each connection instance separately
+        // any time that connectionsRef's value is null (i.e. has no children) I am offline
+        let myConnectionsRef = FIRDatabase.database().reference(withPath: "Users/\(userID)/Connections")
+        
+        // stores the timestamp of my last disconnect (the last time I was seen online)
+        let lastOnlineRef = FIRDatabase.database().reference(withPath: "Users/\(userID)/Connections/LastOnline")
+        
+        let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
+        
+        connectedRef.observe(.value, with: { snapshot in
+            // only handle connection established (or I've reconnected after a loss of connection)
+            guard let connected = snapshot.value as? Bool, connected else {
+                return
+            }
+            // add this device to my connections list
+            // this value could contain info about the device or a timestamp instead of just true
+            let con = myConnectionsRef.child("Connected")
+            con.setValue("true")
+            
+            // when this device disconnects, remove it
+            con.onDisconnectSetValue("false")
+            // when I disconnect, update the last time I was seen online
+            lastOnlineRef.onDisconnectSetValue(FIRServerValue.timestamp())
+        })
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.TitleLabel.text = "Near users: \(self.usersInCircleTable.count)"
         return self.usersInCircleTable.count;
