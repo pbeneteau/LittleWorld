@@ -19,15 +19,9 @@ struct UserLocation {
     var postalCode: String
 }
 
-
-
-// Find users around circle(m)
-func getNearUsers(circle: Double, usersLocation: [String:CLLocation], location: CLLocation) {
-    for user in usersLocation {
-        if distanceBetweenTwoLocations(source: location, destination: user.value) < circle {
-            print("\(user.key) à coté de vous")
-        }
-    }
+struct NearUser {
+    var uid: String
+    var location: CLLocation
 }
 
 // Distance between current user and other user

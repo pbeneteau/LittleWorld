@@ -12,13 +12,16 @@ import CoreLocation
 import MapKit
 import SwiftyJSON
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+
     
     var ref = FIRDatabase.database().reference()
     var user = FIRAuth.auth()?.currentUser
     
     var userLocationInformations: UserLocation = UserLocation(long: 0.0,lat: 0.0,city: "",isoCountryCode: "",postalCode: "")
     var usersLocation = [String:CLLocation]()
+    var usersInCircle = [String:CLLocation]()
+    var usersInCircleTable = [NearUser]()
     
     
     @IBOutlet weak var longituteLabel: UILabel!
@@ -26,12 +29,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
-    @IBOutlet weak var closestTitleLabel: UILabel!
-    
-    @IBOutlet weak var closestLongitudeLabel: UILabel!
-    @IBOutlet weak var closestLatitudeLabel: UILabel!
-    @IBOutlet weak var closestCountryLabel: UILabel!
-    @IBOutlet weak var closestCityLabel: UILabel!
+    @IBOutlet weak var TitleLabel: UILabel!
+    @IBOutlet weak var nearUsersTableView: UITableView!
     
     var locationManager = CLLocationManager()
     var userLocation = CLLocation()
@@ -71,6 +70,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         getUsersLocation()
         getNearUsers(circle: 100, usersLocation: usersLocation, location: locations[0])
+        
+        for (key, value) in self.usersInCircle {
+            self.usersInCircleTable.append(NearUser(uid:key,location:value))
+        }
+        self.nearUsersTableView.reloadData()
     }
     
     // Get current user City, PostalCode and Country code
@@ -130,5 +134,31 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }
         })
     }
+    
+    // Find users around circle(m)
+    func getNearUsers(circle: Double, usersLocation: [String:CLLocation], location: CLLocation){
+        for user in usersLocation {
+            if distanceBetweenTwoLocations(source: location, destination: user.value) < circle {
+                self.usersInCircle[user.key] = user.value
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.usersInCircleTable.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = self.nearUsersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        
+        (cell.viewWithTag(4) as! UILabel).text = self.usersInCircleTable[indexPath.row].uid
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+
 }
 
