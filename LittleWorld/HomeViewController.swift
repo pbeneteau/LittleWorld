@@ -69,7 +69,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         printLocationDetails()
         
         getUsersLocation()
-        getNearUsers(circle: 100, usersLocation: usersLocation, location: locations[0])
+        getNearUsers(circle: 200, usersLocation: usersLocation, location: locations[0])
         
         self.usersInCircleTable.removeAll()
         for (key, value) in self.usersInCircle {
@@ -144,6 +144,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             }
         }
     }
+    func getUserNamebyID(userID: String) -> String {
+        var userName: String = "userName not found"
+        
+        ref.child("Users").child(userID).child("Name").observeSingleEvent(of: .value, with: { snapshot in
+        
+            if !snapshot.exists() { return }
+            
+            userName = (snapshot.value as? String)!
+        })
+        return userName
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.TitleLabel.text = "Near users: \(self.usersInCircleTable.count)"
@@ -152,7 +163,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.nearUsersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        (cell.viewWithTag(4) as! UILabel).text = self.usersInCircleTable[indexPath.row].uid
+        
+        let userID = self.usersInCircleTable[indexPath.row].uid
+        (cell.viewWithTag(4) as! UILabel).text = getUserNamebyID(userID: userID)
         
         return cell
     }
