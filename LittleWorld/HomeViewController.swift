@@ -146,12 +146,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.TitleLabel.text = "Near users: \(self.usersInCircleTable.count)"
         return self.usersInCircleTable.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.nearUsersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        
         (cell.viewWithTag(4) as! UILabel).text = self.usersInCircleTable[indexPath.row].uid
         
         return cell
