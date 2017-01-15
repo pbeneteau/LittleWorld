@@ -3,7 +3,7 @@
 //  LittleWorld
 //
 //  Created by Paul Bénéteau on 13/01/2017.
-//  Copyright © 2017 Paul Bénéteau. All rights reserved.
+//  Copyright © 2017 Paul Bénéteau. All rights reserved
 //
 
 import UIKit
