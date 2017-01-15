@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import CoreLocation
 import MapKit
-import SwiftyJSON
 
 struct UserLocation {
     var long: CLLocationDegrees
@@ -22,45 +21,22 @@ struct UserLocation {
 
 
 
-func getUsersLocation (firebaseRef:FIRDatabaseReference) -> [String:CLLocationCoordinate2D] {
-    var userLocation = [String:CLLocationCoordinate2D]()
-    
-    let usersRef = firebaseRef.child("Users")
-    
-    usersRef.observeSingleEvent(of: .value, with: { (snapshot) in
-        let json = JSON(snapshot.value)
-        print(json)
-        for i in 0..<json.count {
-            print(json[i]["Location"]["Lat"].intValue)
+// Find users around circle(m)
+func getNearUsers(circle: Double, usersLocation: [String:CLLocation], location: CLLocation) {
+    for user in usersLocation {
+        if distanceBetweenTwoLocations(source: location, destination: user.value) < circle {
+            print("\(user.key) à coté de vous")
         }
-        
-    })
-    
-    return userLocation
-}
-
-
-func getNearUsers(circle: Int, usersLocation: NSDictionary, location: CLLocation) {
-    switch circle {
-    case 20:
-        break
-    case 50:
-        break
-    case 100:
-        break
-    case 200:
-        break
-    case 500:
-        break
-    default:
-        break
     }
-    
-   //let distanceKiloMeters = (newLocation.distance(from: oldLocation))/1000
 }
 
-
-
+// Distance between current user and other user
+func distanceBetweenTwoLocations(source:CLLocation,destination:CLLocation) -> Double{
+    
+    let distanceMeters = source.distance(from: destination)
+    return distanceMeters
+    
+}
 
 
 

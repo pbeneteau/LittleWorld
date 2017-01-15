@@ -10,15 +10,15 @@ import UIKit
 import Firebase
 import CoreLocation
 import MapKit
-
+import SwiftyJSON
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     var ref = FIRDatabase.database().reference()
     var user = FIRAuth.auth()?.currentUser
     
-    var userLocationInformations: UserLocation = UserLocation(long: 0.0,lat: 0.0,city: "",country: "",postalCode: "")
-    
+    var userLocationInformations: UserLocation = UserLocation(long: 0.0,lat: 0.0,city: "",isoCountryCode: "",postalCode: "")
+    var usersLocation = [String:CLLocation]()
     
     
     @IBOutlet weak var longituteLabel: UILabel!
@@ -69,10 +69,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         getLocationDetails(location: locations[0])
         printLocationDetails()
         
-        let usersLocation = getUsersLocation(firebaseRef: self.ref) as NSDictionary
-        
+        getUsersLocation()
+        getNearUsers(circle: 100, usersLocation: usersLocation, location: locations[0])
     }
     
+    // Get current user City, PostalCode and Country code
     func getLocationDetails(location: CLLocation) {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
@@ -90,7 +91,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateUserLocationInformations(location: CLLocation, placeMark: CLPlacemark?) {
-        
         // Add location details to the user
         self.userLocationInformations.long = location.coordinate.longitude
         self.userLocationInformations.lat = location.coordinate.latitude
@@ -115,4 +115,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.longituteLabel.text = "\(userLocationInformations.long)"
         self.latitudeLabel.text = "\(userLocationInformations.lat)"
     }
+    
+    // Get the list of users and their location
+    func getUsersLocation() {
+        let usersRef = self.ref.child("Users")
+        
+        usersRef.observeSingleEvent(of: .value, with: { (snapshot) -> Void in
+            let json = JSON(snapshot.value!)
+            for (index, object) in json {
+                let lat = object["Location"]["Lat"].doubleValue
+                let long = object["Location"]["Long"].doubleValue
+                let loc = CLLocation(latitude: lat, longitude: long)
+                self.usersLocation[index] = loc
+            }
+        })
+    }
 }
+
