@@ -145,13 +145,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         }
     }
     func getUserNamebyID(userID: String) -> String {
-        var userName: String = "userName not found"
+        var userName: String = userID
         
-        ref.child("Users").child(userID).child("Name").observeSingleEvent(of: .value, with: { snapshot in
+        ref.child("Users").child(userID).observeSingleEvent(of: .value, with: { snapshot in
         
-            if !snapshot.exists() { return }
-            
-            userName = (snapshot.value as? String)!
+            if !snapshot.exists() {
+                print("error when getting an other user's Name")
+                return
+            }
+            userName = snapshot.childSnapshot(forPath: "Name").value as! String
+            print(userName)
         })
         return userName
     }
@@ -165,6 +168,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         let cell: UITableViewCell = self.nearUsersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
         let userID = self.usersInCircleTable[indexPath.row].uid
+        
         (cell.viewWithTag(4) as! UILabel).text = getUserNamebyID(userID: userID)
         
         return cell

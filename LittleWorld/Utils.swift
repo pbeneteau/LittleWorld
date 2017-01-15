@@ -32,6 +32,16 @@ func distanceBetweenTwoLocations(source:CLLocation,destination:CLLocation) -> Do
     
 }
 
+func loadData(ref: FIRDatabaseReference, childURL:String?, completionHandler: @escaping (AnyObject?) -> ()) {
+    ref.observeSingleEvent(of: .value) { (snapshot:FIRDataSnapshot) in
+        if snapshot.value is NSNull {
+            completionHandler(nil)
+        } else {
+            completionHandler(snapshot.value as AnyObject?)
+        }
+    }
+}
+
 
 
 
