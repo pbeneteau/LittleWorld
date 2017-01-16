@@ -17,12 +17,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     var ref = FIRDatabase.database().reference()
     var user = FIRAuth.auth()?.currentUser
-    
-    var userLocationInformations: UserLocation = UserLocation(long: 0.0,lat: 0.0,city: "",isoCountryCode: "",postalCode: "")
-    var usersLocation = [String:CLLocation]()
-    var usersInCircle = [String:CLLocation]()
-    var usersInCircleTable = [NearUser]()
-    
+
+    var mainUser: MainUser!
+    var users = Users()
     
     @IBOutlet weak var longituteLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -34,6 +31,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     var locationManager = CLLocationManager()
     var userLocation = CLLocation()
+    
+    var inCircleUsersTable = [UserTable]()
     
     
     override func viewDidLoad() {
@@ -51,7 +50,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             locationManager.startUpdatingLocation()
         }
         
-        checkConnectionState(userID: user!.uid  )
+        mainUser = MainUser(uid: (user!.uid))
+        
+        mainUser.checkConnectionState()
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,140 +67,38 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-        getLocationDetails(location: locations[0])
+        
+        self.mainUser.setLocation(location: locations[0])
+        self.users.loadUsers()
+        self.users.loadInCircleUsersList(location: locations[0], _uid: (user?.uid)!, circle: 100)
         printLocationDetails()
         
-        getUsersLocation()
-        getNearUsers(circle: 200, usersLocation: usersLocation, location: locations[0])
-        
-        self.usersInCircleTable.removeAll()
-        for (key, value) in self.usersInCircle {
-            self.usersInCircleTable.append(NearUser(uid:key,location:value))
+        self.inCircleUsersTable.removeAll()
+        for (uid,user) in self.users.getInCircleUsersList() {
+            self.inCircleUsersTable.append(UserTable(uid: uid, user: user))
         }
         self.nearUsersTableView.reloadData()
         
     }
-    
-    // Get current user City, PostalCode and Country code
-    func getLocationDetails(location: CLLocation) {
-        let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
-            if error != nil {
-                print("Error getting location: \(error)")
-            } else {
-                let placeArray = placemarks as [CLPlacemark]!
-                var placeMark: CLPlacemark!
-                if ((placeArray?.count)! > 0) {
-                    placeMark = placeArray?[0]
-                    self.updateUserLocationInformations(location: location, placeMark: placeMark)
-                }
-            }
-        }
-    }
-    
-    func updateUserLocationInformations(location: CLLocation, placeMark: CLPlacemark?) {
-        // Add location details to the user
-        self.userLocationInformations.long = location.coordinate.longitude
-        self.userLocationInformations.lat = location.coordinate.latitude
-        
-        if placeMark != nil {
-            self.userLocationInformations.city = (placeMark?.locality!)!
-            self.userLocationInformations.isoCountryCode = (placeMark?.isoCountryCode!)!
-            self.userLocationInformations.postalCode = (placeMark?.postalCode!)!
-        }
-        
-        ref.child("Users").child((user?.uid)!).child("Location").child("Lat").setValue("\(userLocationInformations.lat)")
-        ref.child("Users").child((user?.uid)!).child("Location").child("Long").setValue("\(userLocationInformations.long)")
-        
-        ref.child("Users").child((user?.uid)!).child("Location").child("City").setValue("\(userLocationInformations.city)")
-        ref.child("Users").child((user?.uid)!).child("Location").child("PostalCode").setValue("\(userLocationInformations.postalCode)")
-        ref.child("Users").child((user?.uid)!).child("Location").child("isoCountryCode").setValue("\(userLocationInformations.isoCountryCode)")
-    }
+
     
     func printLocationDetails() {
-        self.cityLabel.text = "\(userLocationInformations.city)"
-        self.countryLabel.text = "\(userLocationInformations.isoCountryCode)"
-        self.longituteLabel.text = "\(userLocationInformations.long)"
-        self.latitudeLabel.text = "\(userLocationInformations.lat)"
-    }
-    
-    // Get the list of users and their location
-    func getUsersLocation() {
-        let usersRef = self.ref.child("Users")
-        
-        usersRef.observeSingleEvent(of: .value, with: { (snapshot) -> Void in
-            let json = JSON(snapshot.value!)
-            for (index, object) in json {
-                let lat = object["Location"]["Lat"].doubleValue
-                let long = object["Location"]["Long"].doubleValue
-                let loc = CLLocation(latitude: lat, longitude: long)
-                self.usersLocation[index] = loc
-            }
-        })
-    }
-    
-    // Find users around circle(m)
-    func getNearUsers(circle: Double, usersLocation: [String:CLLocation], location: CLLocation){
-        for user in usersLocation {
-            if distanceBetweenTwoLocations(source: location, destination: user.value) < circle  && user.key != self.user?.uid{
-                self.usersInCircle[user.key] = user.value
-            }
-        }
-    }
-    func getUserNamebyID(userID: String) -> String {
-        var userName: String = userID
-        
-        ref.child("Users").child(userID).observeSingleEvent(of: .value, with: { snapshot in
-        
-            if !snapshot.exists() {
-                print("error when getting an other user's Name")
-                return
-            }
-            //userName = snapshot.childSnapshot(forPath: "Name").value as! String
-        })
-        return userName
-    }
-    
-    func checkConnectionState(userID : String) {
-     
-        // since I can connect from multiple devices, we store each connection instance separately
-        // any time that connectionsRef's value is null (i.e. has no children) I am offline
-        let myConnectionsRef = FIRDatabase.database().reference(withPath: "Users/\(userID)/Connections")
-        
-        // stores the timestamp of my last disconnect (the last time I was seen online)
-        let lastOnlineRef = FIRDatabase.database().reference(withPath: "Users/\(userID)/Connections/LastOnline")
-        
-        let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
-        
-        connectedRef.observe(.value, with: { snapshot in
-            // only handle connection established (or I've reconnected after a loss of connection)
-            guard let connected = snapshot.value as? Bool, connected else {
-                return
-            }
-            // add this device to my connections list
-            // this value could contain info about the device or a timestamp instead of just true
-            let con = myConnectionsRef.child("Connected")
-            con.setValue("true")
-            
-            // when this device disconnects, remove it
-            con.onDisconnectSetValue("false")
-            // when I disconnect, update the last time I was seen online
-            lastOnlineRef.onDisconnectSetValue(FIRServerValue.timestamp())
-        })
+        self.cityLabel.text = "\(mainUser.getCity())"
+        self.countryLabel.text = "\(mainUser.getCountryCode())"
+        self.longituteLabel.text = "\(mainUser.getLong())"
+        self.latitudeLabel.text = "\(mainUser.getLat())"
     }
 
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.TitleLabel.text = "Near users: \(self.usersInCircleTable.count)"
-        return self.usersInCircleTable.count;
+        return self.inCircleUsersTable.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.nearUsersTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
-        let userID = self.usersInCircleTable[indexPath.row].uid
-        
-        (cell.viewWithTag(4) as! UILabel).text = getUserNamebyID(userID: userID)
+        (cell.viewWithTag(4) as! UILabel).text = (self.inCircleUsersTable[indexPath.row].user as User).name
         
         return cell
     }

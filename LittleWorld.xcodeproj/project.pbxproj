@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00FE859B1E2C432E0037CA46 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859A1E2C432E0037CA46 /* Users.swift */; };
+		00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859C1E2C55770037CA46 /* MainUser.swift */; };
 		124F9B52376B54DD91D86C3A /* Pods_LittleWorldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */; };
 		3890E1B51E2923C500B8FA9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1B41E2923C500B8FA9B /* LoginViewController.swift */; };
 		3890E1B91E293CCC00B8FA9B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1B81E293CCC00B8FA9B /* FirstViewController.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00FE859A1E2C432E0037CA46 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		00FE859C1E2C55770037CA46 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		0F4A56B39F44AD9F878F401A /* Pods-LittleWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleWorld/Pods-LittleWorld.release.xcconfig"; sourceTree = "<group>"; };
 		14F9028C371B3715373DCECF /* Pods-LittleWorldTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleWorldTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleWorldTests/Pods-LittleWorldTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleWorldTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,8 @@
 				3890E1C81E29501A00B8FA9B /* WalkThroughViewController.swift */,
 				3890E1B81E293CCC00B8FA9B /* FirstViewController.swift */,
 				3890E1C21E294DBB00B8FA9B /* HomeViewController.swift */,
+				00FE859C1E2C55770037CA46 /* MainUser.swift */,
+				00FE859A1E2C432E0037CA46 /* Users.swift */,
 				3890E1CC1E2952D300B8FA9B /* CustomPageViewController.swift */,
 				3890E1D81E2B8EB000B8FA9B /* Utils.swift */,
 				38C81CDE1E292237000523DB /* Assets.xcassets */,
@@ -502,6 +508,8 @@
 			files = (
 				3890E1CD1E2952D300B8FA9B /* CustomPageViewController.swift in Sources */,
 				3890E1B91E293CCC00B8FA9B /* FirstViewController.swift in Sources */,
+				00FE859B1E2C432E0037CA46 /* Users.swift in Sources */,
+				00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */,
 				3890E1D91E2B8EB000B8FA9B /* Utils.swift in Sources */,
 				3890E1B51E2923C500B8FA9B /* LoginViewController.swift in Sources */,
 				38C81CD51E292237000523DB /* AppDelegate.swift in Sources */,
