@@ -16,7 +16,7 @@ import MapKit
 class MainUser {
     
     private let firebaseRef = FIRDatabase.database().reference()
-    private var uid: String!
+    private var uid: String = ""
     private var name: String!
     private var lat: Double!
     private var long: Double!
@@ -56,22 +56,22 @@ class MainUser {
     }
     
     func updateToFirebase() {
-        firebaseRef.child("Users").child(uid!).child("Location").child("Lat").setValue("\(lat!)")
-        firebaseRef.child("Users").child(uid!).child("Location").child("Long").setValue("\(long!)")
+        firebaseRef.child("Users").child(uid).child("Location").child("Lat").setValue("\(lat!)")
+        firebaseRef.child("Users").child(uid).child("Location").child("Long").setValue("\(long!)")
         
-        firebaseRef.child("Users").child(uid!).child("Location").child("City").setValue("\(city!)")
-        firebaseRef.child("Users").child(uid!).child("Location").child("PostalCode").setValue("\(postalCode!)")
-        firebaseRef.child("Users").child(uid!).child("Location").child("isoCountryCode").setValue("\(countryCode!)")
+        firebaseRef.child("Users").child(uid).child("Location").child("City").setValue("\(city!)")
+        firebaseRef.child("Users").child(uid).child("Location").child("PostalCode").setValue("\(postalCode!)")
+        firebaseRef.child("Users").child(uid).child("Location").child("isoCountryCode").setValue("\(countryCode!)")
     }
     
     func checkConnectionState() {
         
         // since I can connect from multiple devices, we store each connection instance separately
         // any time that connectionsRef's value is null (i.e. has no children) I am offline
-        let myConnectionsRef = FIRDatabase.database().reference(withPath: "Users/\(uid!)/Connections")
+        let myConnectionsRef = FIRDatabase.database().reference(withPath: "Users/\(uid)/Connections")
         
         // stores the timestamp of my last disconnect (the last time I was seen online)
-        let lastOnlineRef = FIRDatabase.database().reference(withPath: "Users/\(uid!)/Connections/LastOnline")
+        let lastOnlineRef = FIRDatabase.database().reference(withPath: "Users/\(uid)/Connections/LastOnline")
         
         let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
         
@@ -119,8 +119,8 @@ class MainUser {
         return self.status
     }
     
-    init(uid: String) {
-        self.uid = uid
+    init(_uid: String) {
+        uid = _uid
         lat = 0.0
         long = 0.0
         name = ""

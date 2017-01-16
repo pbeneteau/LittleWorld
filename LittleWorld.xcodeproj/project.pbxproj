@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		009480841E2D76B8005D7B8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 009480831E2D76B8005D7B8C /* GoogleService-Info.plist */; };
 		00FE859B1E2C432E0037CA46 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859A1E2C432E0037CA46 /* Users.swift */; };
 		00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859C1E2C55770037CA46 /* MainUser.swift */; };
 		124F9B52376B54DD91D86C3A /* Pods_LittleWorldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */; };
@@ -19,7 +20,6 @@
 		3890E1CB1E29520300B8FA9B /* BWWWalkthrough in Resources */ = {isa = PBXBuildFile; fileRef = 3890E1CA1E29520300B8FA9B /* BWWWalkthrough */; };
 		3890E1CD1E2952D300B8FA9B /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1CC1E2952D300B8FA9B /* CustomPageViewController.swift */; };
 		3890E1D11E29581C00B8FA9B /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3890E1D01E29581C00B8FA9B /* Walkthrough.storyboard */; };
-		3890E1D51E295C9D00B8FA9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3890E1D41E295C9D00B8FA9B /* GoogleService-Info.plist */; };
 		3890E1D71E2A2EB600B8FA9B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3890E1D61E2A2EB600B8FA9B /* MapKit.framework */; };
 		3890E1D91E2B8EB000B8FA9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1D81E2B8EB000B8FA9B /* Utils.swift */; };
 		38C81CD51E292237000523DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CD41E292237000523DB /* AppDelegate.swift */; };
@@ -51,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		009480831E2D76B8005D7B8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00FE859A1E2C432E0037CA46 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		00FE859C1E2C55770037CA46 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		0F4A56B39F44AD9F878F401A /* Pods-LittleWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleWorld/Pods-LittleWorld.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		3890E1CA1E29520300B8FA9B /* BWWWalkthrough */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BWWWalkthrough; sourceTree = "<group>"; };
 		3890E1CC1E2952D300B8FA9B /* CustomPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		3890E1D01E29581C00B8FA9B /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
-		3890E1D41E295C9D00B8FA9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3890E1D61E2A2EB600B8FA9B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3890E1D81E2B8EB000B8FA9B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		38C81CD11E292237000523DB /* LittleWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +173,8 @@
 				38C81CDE1E292237000523DB /* Assets.xcassets */,
 				3890E1CA1E29520300B8FA9B /* BWWWalkthrough */,
 				38C81CE01E292237000523DB /* LaunchScreen.storyboard */,
+				009480831E2D76B8005D7B8C /* GoogleService-Info.plist */,
 				38C81D061E292286000523DB /* Info.plist */,
-				3890E1D41E295C9D00B8FA9B /* GoogleService-Info.plist */,
 				38C81CDB1E292237000523DB /* LittleWorld.xcdatamodeld */,
 			);
 			path = LittleWorld;
@@ -338,12 +338,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3890E1D51E295C9D00B8FA9B /* GoogleService-Info.plist in Resources */,
 				38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */,
 				3890E1D11E29581C00B8FA9B /* Walkthrough.storyboard in Resources */,
 				38C81CDF1E292237000523DB /* Assets.xcassets in Resources */,
 				3890E1CB1E29520300B8FA9B /* BWWWalkthrough in Resources */,
 				38C81CDA1E292237000523DB /* Main.storyboard in Resources */,
+				009480841E2D76B8005D7B8C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DF2F51105EE9E791A5A99D0 /* Pods-LittleWorld.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LittleWorld/LittleWorld.entitlements;
 				DEVELOPMENT_TEAM = 32M3E59Q24;
@@ -688,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F4A56B39F44AD9F878F401A /* Pods-LittleWorld.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LittleWorld/LittleWorld.entitlements;
 				DEVELOPMENT_TEAM = 32M3E59Q24;

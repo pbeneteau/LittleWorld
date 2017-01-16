@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         
@@ -50,7 +50,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             locationManager.startUpdatingLocation()
         }
         
-        mainUser = MainUser(uid: (user!.uid))
+        mainUser = MainUser(_uid: (user!.uid))
         
         mainUser.checkConnectionState()
     }
