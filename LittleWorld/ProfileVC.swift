@@ -1,0 +1,49 @@
+//
+//  ProfileVC.swift
+//  LittleWorld
+//
+//  Created by antoine beneteau on 2017-01-16.
+//  Copyright © 2017 Paul Bénéteau. All rights reserved.
+//
+
+import UIKit
+import SwiftyJSON
+import Firebase
+
+
+class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var friendNumber: UILabel!
+    @IBOutlet weak var friendsTableView: UITableView!
+    
+    var user = FIRAuth.auth()?.currentUser
+    
+    var mainUser: MainUser!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if (FIRAuth.auth()?.currentUser) != nil {
+            mainUser = MainUser()
+        }
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = self.friendsTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        
+        (cell.viewWithTag(4) as! UILabel).text = ""
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}

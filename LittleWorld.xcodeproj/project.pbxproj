@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		009480841E2D76B8005D7B8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 009480831E2D76B8005D7B8C /* GoogleService-Info.plist */; };
+		009480861E2D782D005D7B8C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480851E2D782D005D7B8C /* MenuVC.swift */; };
+		0094808A1E2D7837005D7B8C /* LocatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480871E2D7837005D7B8C /* LocatorVC.swift */; };
+		0094808B1E2D7837005D7B8C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480881E2D7837005D7B8C /* ChatVC.swift */; };
+		0094808C1E2D7837005D7B8C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480891E2D7837005D7B8C /* ProfileVC.swift */; };
+		0094808E1E2D784D005D7B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0094808D1E2D784D005D7B8C /* Main.storyboard */; };
+		009480901E2D785D005D7B8C /* EZSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094808F1E2D785D005D7B8C /* EZSwipeController.swift */; };
 		00FE859B1E2C432E0037CA46 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859A1E2C432E0037CA46 /* Users.swift */; };
 		00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859C1E2C55770037CA46 /* MainUser.swift */; };
 		124F9B52376B54DD91D86C3A /* Pods_LittleWorldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */; };
 		3890E1B51E2923C500B8FA9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1B41E2923C500B8FA9B /* LoginViewController.swift */; };
-		3890E1B91E293CCC00B8FA9B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1B81E293CCC00B8FA9B /* FirstViewController.swift */; };
 		3890E1BB1E293E8E00B8FA9B /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1BA1E293E8E00B8FA9B /* Transition.swift */; };
 		3890E1BD1E294A1500B8FA9B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3890E1BC1E294A1500B8FA9B /* AdSupport.framework */; };
 		3890E1C31E294DBB00B8FA9B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1C21E294DBB00B8FA9B /* HomeViewController.swift */; };
@@ -23,7 +28,6 @@
 		3890E1D71E2A2EB600B8FA9B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3890E1D61E2A2EB600B8FA9B /* MapKit.framework */; };
 		3890E1D91E2B8EB000B8FA9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1D81E2B8EB000B8FA9B /* Utils.swift */; };
 		38C81CD51E292237000523DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CD41E292237000523DB /* AppDelegate.swift */; };
-		38C81CDA1E292237000523DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CD81E292237000523DB /* Main.storyboard */; };
 		38C81CDD1E292237000523DB /* LittleWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38C81CDB1E292237000523DB /* LittleWorld.xcdatamodeld */; };
 		38C81CDF1E292237000523DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CDE1E292237000523DB /* Assets.xcassets */; };
 		38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C81CE01E292237000523DB /* LaunchScreen.storyboard */; };
@@ -52,6 +56,12 @@
 
 /* Begin PBXFileReference section */
 		009480831E2D76B8005D7B8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		009480851E2D782D005D7B8C /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		009480871E2D7837005D7B8C /* LocatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorVC.swift; sourceTree = "<group>"; };
+		009480881E2D7837005D7B8C /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		009480891E2D7837005D7B8C /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		0094808D1E2D784D005D7B8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0094808F1E2D785D005D7B8C /* EZSwipeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwipeController.swift; sourceTree = "<group>"; };
 		00FE859A1E2C432E0037CA46 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		00FE859C1E2C55770037CA46 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		0F4A56B39F44AD9F878F401A /* Pods-LittleWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleWorld/Pods-LittleWorld.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,7 +69,6 @@
 		1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleWorldTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		337F98F35A88FE3678606790 /* Pods_LittleWorldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleWorldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3890E1B41E2923C500B8FA9B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3890E1B81E293CCC00B8FA9B /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3890E1BA1E293E8E00B8FA9B /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		3890E1BC1E294A1500B8FA9B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3890E1C21E294DBB00B8FA9B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +80,6 @@
 		3890E1D81E2B8EB000B8FA9B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		38C81CD11E292237000523DB /* LittleWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C81CD41E292237000523DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38C81CD91E292237000523DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38C81CDC1E292237000523DB /* LittleWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleWorld.xcdatamodel; sourceTree = "<group>"; };
 		38C81CDE1E292237000523DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38C81CE11E292237000523DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -158,13 +166,17 @@
 			isa = PBXGroup;
 			children = (
 				38C81D051E292247000523DB /* LittleWorld.entitlements */,
+				0094808F1E2D785D005D7B8C /* EZSwipeController.swift */,
+				009480851E2D782D005D7B8C /* MenuVC.swift */,
+				009480871E2D7837005D7B8C /* LocatorVC.swift */,
+				009480881E2D7837005D7B8C /* ChatVC.swift */,
+				009480891E2D7837005D7B8C /* ProfileVC.swift */,
 				3890E1BA1E293E8E00B8FA9B /* Transition.swift */,
 				38C81CD41E292237000523DB /* AppDelegate.swift */,
 				3890E1B41E2923C500B8FA9B /* LoginViewController.swift */,
-				38C81CD81E292237000523DB /* Main.storyboard */,
+				0094808D1E2D784D005D7B8C /* Main.storyboard */,
 				3890E1D01E29581C00B8FA9B /* Walkthrough.storyboard */,
 				3890E1C81E29501A00B8FA9B /* WalkThroughViewController.swift */,
-				3890E1B81E293CCC00B8FA9B /* FirstViewController.swift */,
 				3890E1C21E294DBB00B8FA9B /* HomeViewController.swift */,
 				00FE859C1E2C55770037CA46 /* MainUser.swift */,
 				00FE859A1E2C432E0037CA46 /* Users.swift */,
@@ -341,8 +353,8 @@
 				38C81CE21E292237000523DB /* LaunchScreen.storyboard in Resources */,
 				3890E1D11E29581C00B8FA9B /* Walkthrough.storyboard in Resources */,
 				38C81CDF1E292237000523DB /* Assets.xcassets in Resources */,
+				0094808E1E2D784D005D7B8C /* Main.storyboard in Resources */,
 				3890E1CB1E29520300B8FA9B /* BWWWalkthrough in Resources */,
-				38C81CDA1E292237000523DB /* Main.storyboard in Resources */,
 				009480841E2D76B8005D7B8C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,15 +518,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0094808C1E2D7837005D7B8C /* ProfileVC.swift in Sources */,
 				3890E1CD1E2952D300B8FA9B /* CustomPageViewController.swift in Sources */,
-				3890E1B91E293CCC00B8FA9B /* FirstViewController.swift in Sources */,
 				00FE859B1E2C432E0037CA46 /* Users.swift in Sources */,
 				00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */,
 				3890E1D91E2B8EB000B8FA9B /* Utils.swift in Sources */,
+				009480861E2D782D005D7B8C /* MenuVC.swift in Sources */,
 				3890E1B51E2923C500B8FA9B /* LoginViewController.swift in Sources */,
+				0094808A1E2D7837005D7B8C /* LocatorVC.swift in Sources */,
+				0094808B1E2D7837005D7B8C /* ChatVC.swift in Sources */,
 				38C81CD51E292237000523DB /* AppDelegate.swift in Sources */,
 				38C81CDD1E292237000523DB /* LittleWorld.xcdatamodeld in Sources */,
 				3890E1BB1E293E8E00B8FA9B /* Transition.swift in Sources */,
+				009480901E2D785D005D7B8C /* EZSwipeController.swift in Sources */,
 				3890E1C91E29501A00B8FA9B /* WalkThroughViewController.swift in Sources */,
 				3890E1C31E294DBB00B8FA9B /* HomeViewController.swift in Sources */,
 			);
@@ -552,14 +568,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		38C81CD81E292237000523DB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38C81CD91E292237000523DB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		38C81CE01E292237000523DB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

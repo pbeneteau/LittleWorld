@@ -16,6 +16,7 @@ import MapKit
 class MainUser {
     
     private let firebaseRef = FIRDatabase.database().reference()
+    private var user = FIRAuth.auth()?.currentUser
     private var uid: String = ""
     private var name: String!
     private var lat: Double!
@@ -119,8 +120,8 @@ class MainUser {
         return self.status
     }
     
-    init(_uid: String) {
-        uid = _uid
+    init() {
+        uid = user!.uid
         lat = 0.0
         long = 0.0
         name = ""

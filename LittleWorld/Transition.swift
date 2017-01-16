@@ -16,7 +16,7 @@ class transitionSegue {
      func switchToNavigationController() {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let naviVC = storyBoard.instantiateViewController(withIdentifier: "firstVC")
+        let naviVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = naviVC
         

@@ -12,7 +12,7 @@ import CoreLocation
 import MapKit
 import SwiftyJSON
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
     
     var ref = FIRDatabase.database().reference()
@@ -37,6 +37,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (FIRAuth.auth()?.currentUser) != nil // Check if user already logged in
+        {
+            print("user already logged in -> firstVC")
+            
+            transitionSegue.segue.switchToNavigationController() // Segue if true
+        }
 
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -50,7 +57,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             locationManager.startUpdatingLocation()
         }
         
-        mainUser = MainUser(_uid: (user!.uid))
+        mainUser = MainUser()
         
         mainUser.checkConnectionState()
     }
@@ -105,6 +112,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "login" {
+            let toViewController = segue.destination as UIViewController
+            toViewController.transitioningDelegate = self
+        }
     }
 
 }
