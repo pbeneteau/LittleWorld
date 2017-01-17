@@ -17,6 +17,7 @@
 		00FE859B1E2C432E0037CA46 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859A1E2C432E0037CA46 /* Users.swift */; };
 		00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859C1E2C55770037CA46 /* MainUser.swift */; };
 		124F9B52376B54DD91D86C3A /* Pods_LittleWorldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */; };
+		3860FE711E2E3265000B72A8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3860FE701E2E3265000B72A8 /* WelcomeViewController.swift */; };
 		3890E1B51E2923C500B8FA9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1B41E2923C500B8FA9B /* LoginViewController.swift */; };
 		3890E1BB1E293E8E00B8FA9B /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890E1BA1E293E8E00B8FA9B /* Transition.swift */; };
 		3890E1BD1E294A1500B8FA9B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3890E1BC1E294A1500B8FA9B /* AdSupport.framework */; };
@@ -68,6 +69,7 @@
 		14F9028C371B3715373DCECF /* Pods-LittleWorldTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleWorldTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleWorldTests/Pods-LittleWorldTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleWorldTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		337F98F35A88FE3678606790 /* Pods_LittleWorldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleWorldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3860FE701E2E3265000B72A8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3890E1B41E2923C500B8FA9B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3890E1BA1E293E8E00B8FA9B /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		3890E1BC1E294A1500B8FA9B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -175,6 +177,7 @@
 				38C81CD41E292237000523DB /* AppDelegate.swift */,
 				3890E1B41E2923C500B8FA9B /* LoginViewController.swift */,
 				0094808D1E2D784D005D7B8C /* Main.storyboard */,
+				3860FE701E2E3265000B72A8 /* WelcomeViewController.swift */,
 				3890E1D01E29581C00B8FA9B /* Walkthrough.storyboard */,
 				3890E1C81E29501A00B8FA9B /* WalkThroughViewController.swift */,
 				3890E1C21E294DBB00B8FA9B /* HomeViewController.swift */,
@@ -519,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0094808C1E2D7837005D7B8C /* ProfileVC.swift in Sources */,
+				3860FE711E2E3265000B72A8 /* WelcomeViewController.swift in Sources */,
 				3890E1CD1E2952D300B8FA9B /* CustomPageViewController.swift in Sources */,
 				00FE859B1E2C432E0037CA46 /* Users.swift in Sources */,
 				00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */,

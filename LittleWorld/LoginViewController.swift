@@ -22,13 +22,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (FIRAuth.auth()?.currentUser != nil) // Check if user already logged in
-        {
-            print("user already logged in -> firstVC")
-            
-            transitionSegue.segue.switchToNavigationController() // Segue if true
-        }
-        
         facebookButtonView!.delegate = self
         facebookButtonView!.readPermissions = ["public_profile", "email", "user_friends"]
     }
