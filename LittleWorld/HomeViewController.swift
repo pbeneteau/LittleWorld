@@ -61,9 +61,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     }
     
     @IBAction func disconnectAction(_ sender: Any) {
-        try!FIRAuth.auth()?.signOut() // Logout
-        print("user did logout of facebook")
-        transitionSegue.segue.switchToLoginview()
+        mainUser.disconnect()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

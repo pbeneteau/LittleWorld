@@ -69,6 +69,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!)
     {
         try!FIRAuth.auth()?.signOut() // Logout
+        
         print("user did logout of facebook")
     }
     
