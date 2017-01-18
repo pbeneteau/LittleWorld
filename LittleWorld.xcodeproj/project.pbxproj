@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		009480841E2D76B8005D7B8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 009480831E2D76B8005D7B8C /* GoogleService-Info.plist */; };
 		009480861E2D782D005D7B8C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480851E2D782D005D7B8C /* MenuVC.swift */; };
-		0094808A1E2D7837005D7B8C /* LocatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480871E2D7837005D7B8C /* LocatorVC.swift */; };
 		0094808B1E2D7837005D7B8C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480881E2D7837005D7B8C /* ChatVC.swift */; };
 		0094808C1E2D7837005D7B8C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009480891E2D7837005D7B8C /* ProfileVC.swift */; };
 		0094808E1E2D784D005D7B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0094808D1E2D784D005D7B8C /* Main.storyboard */; };
 		009480901E2D785D005D7B8C /* EZSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094808F1E2D785D005D7B8C /* EZSwipeController.swift */; };
+		00E538AE1E2FBE55007B8C66 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E538A91E2FBE55007B8C66 /* Commons.swift */; };
+		00E538AF1E2FBE55007B8C66 /* HeadingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E538AA1E2FBE55007B8C66 /* HeadingRequest.swift */; };
+		00E538B01E2FBE55007B8C66 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E538AB1E2FBE55007B8C66 /* LocationManager.swift */; };
+		00E538B11E2FBE55007B8C66 /* LocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E538AC1E2FBE55007B8C66 /* LocationRequest.swift */; };
+		00E538B21E2FBE55007B8C66 /* VisitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E538AD1E2FBE55007B8C66 /* VisitRequest.swift */; };
 		00FE859B1E2C432E0037CA46 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859A1E2C432E0037CA46 /* Users.swift */; };
 		00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE859C1E2C55770037CA46 /* MainUser.swift */; };
 		124F9B52376B54DD91D86C3A /* Pods_LittleWorldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC0FC706975CED77716C27 /* Pods_LittleWorldTests.framework */; };
@@ -58,11 +62,15 @@
 /* Begin PBXFileReference section */
 		009480831E2D76B8005D7B8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		009480851E2D782D005D7B8C /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
-		009480871E2D7837005D7B8C /* LocatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorVC.swift; sourceTree = "<group>"; };
 		009480881E2D7837005D7B8C /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		009480891E2D7837005D7B8C /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		0094808D1E2D784D005D7B8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0094808F1E2D785D005D7B8C /* EZSwipeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwipeController.swift; sourceTree = "<group>"; };
+		00E538A91E2FBE55007B8C66 /* Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
+		00E538AA1E2FBE55007B8C66 /* HeadingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingRequest.swift; sourceTree = "<group>"; };
+		00E538AB1E2FBE55007B8C66 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		00E538AC1E2FBE55007B8C66 /* LocationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationRequest.swift; sourceTree = "<group>"; };
+		00E538AD1E2FBE55007B8C66 /* VisitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitRequest.swift; sourceTree = "<group>"; };
 		00FE859A1E2C432E0037CA46 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		00FE859C1E2C55770037CA46 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		0F4A56B39F44AD9F878F401A /* Pods-LittleWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleWorld/Pods-LittleWorld.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +138,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00E538A81E2FBE55007B8C66 /* LocationLib */ = {
+			isa = PBXGroup;
+			children = (
+				00E538A91E2FBE55007B8C66 /* Commons.swift */,
+				00E538AA1E2FBE55007B8C66 /* HeadingRequest.swift */,
+				00E538AB1E2FBE55007B8C66 /* LocationManager.swift */,
+				00E538AC1E2FBE55007B8C66 /* LocationRequest.swift */,
+				00E538AD1E2FBE55007B8C66 /* VisitRequest.swift */,
+			);
+			path = LocationLib;
+			sourceTree = "<group>";
+		};
 		17DEEA7AE6CC8DF0ED2BAF3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,10 +187,10 @@
 		38C81CD31E292237000523DB /* LittleWorld */ = {
 			isa = PBXGroup;
 			children = (
+				00E538A81E2FBE55007B8C66 /* LocationLib */,
 				38C81D051E292247000523DB /* LittleWorld.entitlements */,
 				0094808F1E2D785D005D7B8C /* EZSwipeController.swift */,
 				009480851E2D782D005D7B8C /* MenuVC.swift */,
-				009480871E2D7837005D7B8C /* LocatorVC.swift */,
 				009480881E2D7837005D7B8C /* ChatVC.swift */,
 				009480891E2D7837005D7B8C /* ProfileVC.swift */,
 				3890E1BA1E293E8E00B8FA9B /* Transition.swift */,
@@ -523,19 +543,23 @@
 			files = (
 				0094808C1E2D7837005D7B8C /* ProfileVC.swift in Sources */,
 				3860FE711E2E3265000B72A8 /* WelcomeViewController.swift in Sources */,
+				00E538B21E2FBE55007B8C66 /* VisitRequest.swift in Sources */,
+				00E538AF1E2FBE55007B8C66 /* HeadingRequest.swift in Sources */,
 				3890E1CD1E2952D300B8FA9B /* CustomPageViewController.swift in Sources */,
 				00FE859B1E2C432E0037CA46 /* Users.swift in Sources */,
 				00FE859D1E2C55770037CA46 /* MainUser.swift in Sources */,
 				3890E1D91E2B8EB000B8FA9B /* Utils.swift in Sources */,
 				009480861E2D782D005D7B8C /* MenuVC.swift in Sources */,
 				3890E1B51E2923C500B8FA9B /* LoginViewController.swift in Sources */,
-				0094808A1E2D7837005D7B8C /* LocatorVC.swift in Sources */,
+				00E538B11E2FBE55007B8C66 /* LocationRequest.swift in Sources */,
 				0094808B1E2D7837005D7B8C /* ChatVC.swift in Sources */,
 				38C81CD51E292237000523DB /* AppDelegate.swift in Sources */,
 				38C81CDD1E292237000523DB /* LittleWorld.xcdatamodeld in Sources */,
+				00E538AE1E2FBE55007B8C66 /* Commons.swift in Sources */,
 				3890E1BB1E293E8E00B8FA9B /* Transition.swift in Sources */,
 				009480901E2D785D005D7B8C /* EZSwipeController.swift in Sources */,
 				3890E1C91E29501A00B8FA9B /* WalkThroughViewController.swift in Sources */,
+				00E538B01E2FBE55007B8C66 /* LocationManager.swift in Sources */,
 				3890E1C31E294DBB00B8FA9B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,7 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'BWWalkthrough'
 pod 'SwiftyJSON'
+pod 'PermissionScope'
 
   target 'LittleWorldTests' do
     inherit! :search_paths

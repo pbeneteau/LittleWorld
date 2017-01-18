@@ -9,10 +9,9 @@
 import UIKit
 import Firebase
 import CoreLocation
-import MapKit
 import SwiftyJSON
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
     
     var ref = FIRDatabase.database().reference()
@@ -29,30 +28,26 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var nearUsersTableView: UITableView!
     
-    var locationManager = CLLocationManager()
-    var userLocation = CLLocation()
     
     var inCircleUsersTable = [UserTable]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
         
         mainUser = MainUser()
         
         mainUser.checkConnectionState()
+
+        var r = Location.getLocation(withAccuracy: .house, frequency: .byDistanceIntervals(meters: 4), timeout: nil, onSuccess: { (location) in
+            self.mainUser.setLocation(location: location)
+            self.printLocationDetails()
+        }) { (last, err) in
+            print("err \(err)")
+        }
+        r.onAuthorizationDidChange = { newStatus in
+            print("New status \(newStatus)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,27 +59,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         mainUser.disconnect()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        self.mainUser.setLocation(location: locations[0])
-        self.users.loadUsers()
-        self.users.loadInCircleUsersList(location: locations[0], _uid: (user?.uid)!, circle: 100)
-        printLocationDetails()
-        
-        self.inCircleUsersTable.removeAll()
-        for (uid,user) in self.users.getInCircleUsersList() {
-            self.inCircleUsersTable.append(UserTable(uid: uid, user: user))
-        }
-        self.nearUsersTableView.reloadData()
-        
-    }
 
     
     func printLocationDetails() {
-        self.cityLabel.text = "\(mainUser.getCity())"
-        self.countryLabel.text = "\(mainUser.getCountryCode())"
-        self.longituteLabel.text = "\(mainUser.getLong())"
-        self.latitudeLabel.text = "\(mainUser.getLat())"
+        self.cityLabel.text = "City: \(mainUser.getCity())"
+        self.countryLabel.text = "Country: \(mainUser.getCountryCode())"
+        self.longituteLabel.text = "Longitude: \(mainUser.getLong())"
+        self.latitudeLabel.text = "Latitude: \(mainUser.getLat())"
     }
 
     

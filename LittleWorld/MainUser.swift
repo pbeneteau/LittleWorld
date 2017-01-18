@@ -36,23 +36,13 @@ class MainUser {
     
     // Get current user City, PostalCode and Country code
     func getLocationDetails(location: CLLocation) {
-        let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
-            if error != nil {
-                print("Error getting location: \(error)")
-            } else {
-                let placeArray = placemarks as [CLPlacemark]!
-                var placeMark: CLPlacemark!
-                if ((placeArray?.count)! > 0) {
-                    placeMark = placeArray?[0]
-                    if let infos = placeMark {
-                        self.city = infos.locality
-                        self.countryCode = infos.isoCountryCode
-                        self.postalCode = infos.postalCode
-                        self.updateToFirebase()
-                    }
-                }
-            }
+        _ = Location.reverse(coordinates: location.coordinate, onSuccess: { foundPlacemark in
+            self.city = foundPlacemark.locality
+            self.countryCode = foundPlacemark.isoCountryCode
+            self.postalCode = foundPlacemark.postalCode
+            self.updateToFirebase()
+        }) { error in
+            print("Error: \(error)")
         }
     }
     
