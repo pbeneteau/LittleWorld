@@ -80,12 +80,7 @@ class MainUser {
             lastOnlineRef.onDisconnectSetValue(FIRServerValue.timestamp())
         })
     }
-    func disconnect() {
-        
-        try!FIRAuth.auth()?.signOut() // Logout
-        transitionSegue.segue.switchToLoginview()
-        print("user did logout")
-    }
+    
     
     
     // Get 
