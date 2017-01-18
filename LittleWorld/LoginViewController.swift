@@ -22,13 +22,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (FIRAuth.auth()?.currentUser != nil) // Check if user already logged in
-        {
-            print("user already logged in -> firstVC")
-            
-            transitionSegue.segue.switchToNavigationController() // Segue if true
-        }
-        
         facebookButtonView!.delegate = self
         facebookButtonView!.readPermissions = ["public_profile", "email", "user_friends"]
     }
@@ -76,6 +69,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!)
     {
         try!FIRAuth.auth()?.signOut() // Logout
+        
         print("user did logout of facebook")
     }
     
