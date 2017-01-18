@@ -6,6 +6,7 @@
 //  Copyright © 2017 Paul Bénéteau. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
 import CoreLocation
@@ -13,15 +14,19 @@ import SwiftyJSON
 import PermissionScope
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
-
+    
     
     var ref = FIRDatabase.database().reference()
     var user = FIRAuth.auth()?.currentUser
-
+    
     var mainUser: MainUser!
     var users = Users()
     
+    var inCircleUsers = [String:User]()
+    var inCircleUsersTable = [UserTable]()
+    
     let pscope = PermissionScope()
+    
     
     @IBOutlet weak var longituteLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -32,35 +37,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var nearUsersTableView: UITableView!
     
     
-    var inCircleUsersTable = [UserTable]()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pscope.addPermission(LocationWhileInUsePermission(), message: "We use this to track\r\nwhere you live")
+        pscope.addPermission(LocationAlwaysPermission(), message: "We use this to track\r\nwhere you live :)")
         
-        
-        pscope.show({ finished, results in
-            print("got results \(results)")
-        }, cancelled: { (results) -> Void in
-            print("thing was cancelled")
-        })
-        
+        showLocationPermission(scope: pscope)
         
         mainUser = MainUser()
         
         mainUser.checkConnectionState()
-
-        var r = Location.getLocation(withAccuracy: .house, frequency: .byDistanceIntervals(meters: 1), timeout: nil, onSuccess: { (location) in
-            self.mainUser.setLocation(location: location)
-            self.printLocationDetails()
+        
+        var r = Location.getLocation(withAccuracy: .house, frequency: .continuous, timeout: nil, onSuccess: { (location) in
+            
+            self.updateUserLocation(location: location)
+            self.updateNearbyUsers()
+            
         }) { (last, err) in
             print("err \(err)")
         }
         r.onAuthorizationDidChange = { newStatus in
             print("New status \(newStatus)")
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +72,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         mainUser.disconnect()
     }
     
-
     
     func printLocationDetails() {
         self.cityLabel.text = "City: \(mainUser.getCity())"
@@ -80,7 +79,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.longituteLabel.text = "Longitude: \(mainUser.getLong())"
         self.latitudeLabel.text = "Latitude: \(mainUser.getLat())"
     }
-
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,6 +103,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             toViewController.transitioningDelegate = self
         }
     }
-
+    
+    func updateUserLocation(location: CLLocation) {
+        // Get User's localization and informations
+        self.mainUser.setLocation(location: location)
+        self.printLocationDetails()
+    }
+    
+    func updateNearbyUsers() {
+        // Get nearby users every 10s
+        self.users.loadUsers()
+        self.users.loadInCircleUsersList(location: self.mainUser.getLocation(), _uid: self.mainUser.getUid(), circle: 100)
+        self.inCircleUsers = self.users.getInCircleUsersList()
+        self.inCircleUsersTable = convertUserDictionaryToTable(dictionary: self.inCircleUsers)
+        self.nearUsersTableView.reloadData()
+    }
+    
 }
 

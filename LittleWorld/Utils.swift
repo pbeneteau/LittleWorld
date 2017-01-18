@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import MapKit
+import PermissionScope
 
 
 // Distance between current user and other user
@@ -21,6 +22,42 @@ func distanceBetweenTwoLocations(source:CLLocation,destination:CLLocation) -> Do
 }
 
 
+func showLocationPermission(scope: PermissionScope!) {
+    scope.show(
+        { finished, results in
+            print("got results \(results)")
+    },
+        cancelled: { results in
+            print("thing was cancelled")
+    }
+    )
+}
+
+func checkLocationPermission() -> Bool {
+    switch PermissionScope().statusLocationAlways() {
+    case .unknown:
+        // ask
+        PermissionScope().requestLocationAlways()
+    case .unauthorized, .disabled:
+        // bummer
+        return false
+    case .authorized:
+        // thanks!
+        return true
+    }
+    return true
+}
+
+func convertUserDictionaryToTable(dictionary: [String:User]) -> [UserTable] {
+    var table = [UserTable]()
+    for (uid,user) in dictionary {
+        var userTable = UserTable()
+        userTable.uid = uid
+        userTable.user = user
+        table.append(userTable)
+    }
+    return table
+}
 
 
 

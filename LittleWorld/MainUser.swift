@@ -19,18 +19,16 @@ class MainUser {
     private var user = FIRAuth.auth()?.currentUser
     private var uid: String = ""
     private var name: String!
-    private var lat: Double!
-    private var long: Double!
     private var city: String!
     private var postalCode: String!
     private var countryCode: String!
     private var status: Bool!
+    private var location: CLLocation!
     
     
     // Location
     func setLocation(location: CLLocation) {
-        self.lat = location.coordinate.latitude
-        self.long = location.coordinate.longitude
+        self.location = location
         self.getLocationDetails(location: location)
     }
     
@@ -47,8 +45,8 @@ class MainUser {
     }
     
     func updateToFirebase() {
-        firebaseRef.child("Users").child(uid).child("Location").child("Lat").setValue("\(lat!)")
-        firebaseRef.child("Users").child(uid).child("Location").child("Long").setValue("\(long!)")
+        firebaseRef.child("Users").child(uid).child("Location").child("Lat").setValue("\(location.coordinate.latitude)")
+        firebaseRef.child("Users").child(uid).child("Location").child("Long").setValue("\(location.coordinate.longitude)")
         
         firebaseRef.child("Users").child(uid).child("Location").child("City").setValue("\(city!)")
         firebaseRef.child("Users").child(uid).child("Location").child("PostalCode").setValue("\(postalCode!)")
@@ -97,12 +95,6 @@ class MainUser {
     func getName() -> String {
         return self.name
     }
-    func getLat() -> Double {
-        return self.lat
-    }
-    func getLong() -> Double {
-        return self.long
-    }
     func getCity() -> String {
         return self.city
     }
@@ -115,11 +107,19 @@ class MainUser {
     func getStatus() -> Bool {
         return self.status
     }
+    func getLocation() -> CLLocation {
+        return location
+    }
+    func getLat() -> CLLocationDegrees {
+        return location.coordinate.latitude
+    }
+    func getLong() -> CLLocationDegrees{
+        return location.coordinate.longitude
+    }
     
     init() {
         uid = user!.uid
-        lat = 0.0
-        long = 0.0
+        location = CLLocation(latitude: 0.0, longitude: 0.0)
         name = ""
         city = ""
         postalCode = ""

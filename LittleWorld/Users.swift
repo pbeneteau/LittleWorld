@@ -69,7 +69,7 @@ class Users {
     func loadInCircleUsersList(location: CLLocation, _uid: String, circle: Double) {
         for (uid,user) in onlineUsersList {
             let location2 = CLLocation(latitude: user.lat, longitude: user.long)
-    
+            
             if (distanceBetweenTwoLocations(source: location, destination: location2) < circle && uid != _uid) {
                 self.inCircleUsersList[uid] = user
             } else {
