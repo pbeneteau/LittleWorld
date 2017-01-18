@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import SwiftyJSON
+import PermissionScope
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
@@ -19,6 +20,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     var mainUser: MainUser!
     var users = Users()
+    
+    let pscope = PermissionScope()
     
     @IBOutlet weak var longituteLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -35,11 +38,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pscope.addPermission(LocationWhileInUsePermission(), message: "We use this to track\r\nwhere you live")
+        
+        
+        pscope.show({ finished, results in
+            print("got results \(results)")
+        }, cancelled: { (results) -> Void in
+            print("thing was cancelled")
+        })
+        
+        
         mainUser = MainUser()
         
         mainUser.checkConnectionState()
 
-        var r = Location.getLocation(withAccuracy: .house, frequency: .byDistanceIntervals(meters: 4), timeout: nil, onSuccess: { (location) in
+        var r = Location.getLocation(withAccuracy: .house, frequency: .byDistanceIntervals(meters: 1), timeout: nil, onSuccess: { (location) in
             self.mainUser.setLocation(location: location)
             self.printLocationDetails()
         }) { (last, err) in
